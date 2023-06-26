@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unveiling Dataset Biases: A Hands-On Adventure</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      padding: 20px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .visible {
+      display: block;
+    }
+
+    .footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: #f8f9fa;
+      color: black;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .progress {
+      height: 10px;
+      background-color: #ddd;
+    }
+
+    .progress-bar {
+      background-color: #007bff;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="text-center my-4">Unveiling Dataset Biases: A Hands-On Adventure</h1>
+    <div id="progress-bar" class="progress mb-4">
+      <div class="progress-bar" style="width: 0;"></div>
+    </div>
+
+    <div id="introduction" class="section visible">
+      <h2>Introduction</h2>
+      <p>Welcome, AI engineers, to "Unveiling Dataset Biases: A Hands-On Adventure." This immersive, interactive module will take you on a journey through the complexities of dataset biases and their impact on AI models. Your decisions will shape the trajectory of your AI model's development. Get ready for an exciting adventure!</p>
+      <button onclick="showSection('challenge');" class="btn btn-primary">Start</button>
+    </div>
+
+    <div id="challenge" class="section hidden">
+      <h2>Meet Your AI Challenge</h2>
+      <p>As an AI engineer, you've been tasked with developing a sign language recognition model. Your journey begins with two dataset options: the Unlabeled Dataset, a vast collection of videos with limited information, and the ASL Citizen Dataset with a Dataset Nutrition Profile (DNP) Label, offering insights into the dataset's biases.</p>
+      <button onclick="showSection('unlabeled');" class="btn btn-primary">Choose Unlabeled Dataset</button>
+      <button onclick="showSection('asl_citizen');" class="btn btn-primary">Choose ASL Citizen Dataset</button>
+    </div>
+
+    <div id="unlabeled" class="section hidden">
+      <h2>Diving into the Unlabeled Dataset</h2>
+      <p>You've chosen the Unlabeled Dataset, a vast collection of videos. As you delve into this dataset, you realize there is limited information about its creation, the demographics of participants, and the recording conditions. This lack of information makes it difficult to assess the dataset's representativeness and potential biases. Will you proceed with this dataset or switch to the ASL Citizen Dataset?</p>
+      <button onclick="showSection('decision_unlabeled_proceed');" class="btn btn-primary">Proceed with Unlabeled Dataset</button>
+      <button onclick="showSection('asl_citizen');" class="btn btn-primary">Switch to ASL Citizen Dataset</button>
+    </div>
+
+    <div id="decision_unlabeled_proceed" class="section hidden">
+      <h2>Outcome - Proceeding with Unlabeled Dataset</h2>
+      <p>You've decided to proceed with the Unlabeled Dataset. As you continue your exploration, you encounter various challenges and make important decisions. Good luck!</p>
+      <button onclick="showSection('ai_model_development');" class="btn btn-primary">Continue</button>
+    </div>
+
+    <div id="asl_citizen" class="section hidden">
+      <h2>Uncovering the ASL Citizen Dataset</h2>
+      <p>You've selected the ASL Citizen Dataset with the Dataset Nutrition Profile (DNP) Label. The DNP Label offers valuable insights into the dataset's potential risks and biases. Let's uncover the secrets hidden within.</p>
+      <button onclick="showSection('interactive_dnp');" class="btn btn-primary">Continue</button>
+    </div>
+
+    <div id="interactive_dnp" class="section hidden">
+      <h2>Interactive DNP Label Exploration</h2>
+      <p>Examine the DNP Label, focusing on the 'Potential Risks' section. Identify the risks and consider their potential impact on your AI model. This knowledge will help you navigate the challenges ahead.</p>
+      <button onclick="showSection('decision_address_risks');" class="btn btn-primary">Analyze Risks</button>
+    </div>
+
+    <div id="decision_address_risks" class="section hidden">
+      <h2>Decision Point - Addressing Risks</h2>
+      <p>Now that you understand the potential risks, it's time to make a critical decision. Do you feel confident using the ASL Citizen Dataset despite the identified risks, such as potential overrepresentation of certain regional sign language dialects?</p>
+      <button onclick="showSection('decision_address_risks_proceed');" class="btn btn-primary">Proceed with ASL Citizen Dataset</button>
+      <button onclick="showSection('decision_address_risks_reevaluate');" class="btn btn-primary">Reevaluate Dataset Choice</button>
+    </div>
+
+    <div id="decision_address_risks_proceed" class="section hidden">
+      <h2>Outcome - Proceeding with ASL Citizen Dataset</h2>
+      <p>Congratulations! You've decided to proceed with the ASL Citizen Dataset, taking into account the identified risks. This dataset provides valuable insights and will be instrumental in developing your sign language recognition model.</p>
+      <button onclick="showSection('ai_model_development');" class="btn btn-primary">Continue</button>
+    </div>
+
+    <div id="decision_address_risks_reevaluate" class="section hidden">
+      <h2>Outcome - Reevaluating Dataset Choice</h2>
+      <p>You've decided to reevaluate your dataset choice due to the identified risks in the ASL Citizen Dataset. It's essential to ensure the dataset's integrity and representativeness for your sign language recognition model.</p>
+      <button onclick="showSection('challenge');" class="btn btn-primary">Restart</button>
+    </div>
+
+    <div id="ai_model_development" class="section hidden">
+      <h2>AI Model Development</h2>
+      <p>You've decided to move forward with the ASL Citizen Dataset, embracing the challenges it presents. During testing, your model struggles to accurately recognize signs from older individuals and those with non-standard sign language dialects. Reflect on whether the DNP Label predicted these issues and think about strategies to address them.</p>
+      <button onclick="showSection('reflect_and_address_bias');" class="btn btn-primary">Reflect and Address Bias</button>
+    </div>
+
+    <div id="reflect_and_address_bias" class="section hidden">
+      <h2>Reflect and Address Bias</h2>
+      <p>Consider different strategies to address the bias issues:</p>
+      <button onclick="showSection('strategy1_feedback');" class="btn btn-primary">Update Training Data</button>
+      <button onclick="showSection('strategy2_feedback');" class="btn btn-primary">Apply Data Augmentation Techniques</button>
+      <button onclick="showSection('strategy3_feedback');" class="btn btn-primary">Adjust Model Parameters</button>
+    </div>
+
+    <div id="strategy1_feedback" class="section hidden">
+      <h2>Update Training Data</h2>
+      <p>Great choice! By updating the training data to include more diverse samples, you can improve the model's performance and ensure better accuracy. However, consider the potential impact. Meet Jane, a 70-year-old woman who relies on sign language for communication. If your model was trained primarily on data from young, adult signers, it might struggle to recognize Jane's signs. Jane might feel frustrated and excluded, underscoring the importance of diverse training data.</p>
+      <button onclick="showSection('conclusion');" class="btn btn-primary">Continue</button>
+    </div>
+
+    <div id="strategy2_feedback" class="section hidden">
+      <h2>Apply Data Augmentation Techniques</h2>
+      <p>Excellent! Data augmentation techniques can help to increase the diversity and size of your dataset, potentially improving the model's performance. However, remember that these techniques should be used carefully to avoid introducing new biases. Consider Tom, a 10-year-old boy learning sign language. If your model was trained primarily on adult signers and didn't include enough data from children, it might fail to recognize Tom's signs accurately. This could lead to frustration and hinder his learning process, highlighting the need for careful data augmentation.</p>
+      <button onclick="showSection('conclusion');" class="btn btn-primary">Continue</button>
+    </div>
+
+    <div id="strategy3_feedback" class="section hidden">
+      <h2>Adjust Model Parameters</h2>
+      <p>Good thinking! Adjusting model parameters can help to optimize the model's performance. However, this alone may not fully address the bias issue. It's often beneficial to combine this strategy with others, such as updating the training data or applying data augmentation techniques.</p>
+      <button onclick="showSection('conclusion');" class="btn btn-primary">Continue</button>
+    </div>
+
+    <div id="conclusion" class="section hidden">
+      <h2>Conclusion</h2>
+      <p>Congratulations! You've navigated the complexities of dataset biases and developed an AI model. Reflect on your journey, the decisions you've made, and the outcomes you've experienced. This adventure has hopefully provided you with a deeper understanding of dataset biases and how they can affect AI model development.</p>
+      <button onclick="showSection('introduction');" class="btn btn-primary">Restart Adventure</button>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>&copy; 2023 PRIM&R. All rights reserved.</p>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script>
+    const sections = document.querySelectorAll('.section');
+    const progressBar = document.getElementById('progress-bar');
+    const progressBarFill = progressBar.querySelector('.progress-bar');
+
+    function showSection(id) {
+      sections.forEach(section => {
+        if (section.id === id) {
+          section.classList.remove('hidden');
+          section.classList.add('visible');
+        } else {
+          section.classList.remove('visible');
+          section.classList.add('hidden');
+        }
+      });
+
+      updateProgressBar(id);
+    }
+
+    function updateProgressBar(id) {
+      const totalSections = sections.length;
+      const currentSectionIndex = Array.from(sections).findIndex(section => section.id === id);
+      const progressPercentage = (currentSectionIndex + 1) / totalSections * 100;
+      progressBarFill.style.width = progressPercentage + '%';
+    }
+
+    // Hide all sections except the first one initially
+    sections.forEach((section, index) => {
+      if (index !== 0) {
+        section.classList.add('hidden');
+      }
+    });
+  </script>
+</body>
+
+</html>
